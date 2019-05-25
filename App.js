@@ -10,7 +10,7 @@ let todoIndex = 0
 
 class App extends Component {
 
-  constructor () {
+  constructor() {
     super()
     this.state = {
       inputValue: '',
@@ -23,15 +23,15 @@ class App extends Component {
     this.submitTodo = this.submitTodo.bind(this)
   }
 
-  inputChange (inputValue) {
+  inputChange(inputValue) {
     this.setState({ inputValue })
   }
 
-  submitTodo () {
+  submitTodo() {
     if (this.state.inputValue.match(/^\s*$/)) return
-    let todo = { 
-      title: this.state.inputValue, 
-      todoIndex: todoIndex, 
+    let todo = {
+      title: this.state.inputValue,
+      todoIndex: todoIndex,
       complete: false
     }
     todoIndex++
@@ -40,7 +40,7 @@ class App extends Component {
       console.log('State: ', this.state)
     })
   }
-  deleteTodo (todoIndex) {
+  deleteTodo(todoIndex) {
     let { todos } = this.state
     todos = this.state.todos.filter((todo) => {
       return todo.todoIndex !== todoIndex
@@ -48,7 +48,7 @@ class App extends Component {
     this.setState({ todos })
   }
 
-  toggleComplete (todoIndex) {
+  toggleComplete(todoIndex) {
     let { todos } = this.state
     todos.forEach((todo) => {
       if (todo.todoIndex === todoIndex) {
@@ -58,14 +58,14 @@ class App extends Component {
     this.setState({ todos })
   }
 
-  setType (type) {
+  setType(type) {
     this.setState({ type })
   }
 
 
 
 
-  render () {
+  render() {
     const { todos, inputValue, type } = this.state
     return (
       <View
@@ -77,7 +77,7 @@ class App extends Component {
           <Input
             inputValue={inputValue}
             inputChange={(text) => this.inputChange(text)} />
-     <TodoList
+          <TodoList
             type={type}
             toggleComplete={this.toggleComplete}
             deleteTodo={this.deleteTodo}

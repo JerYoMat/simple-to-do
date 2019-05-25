@@ -1,15 +1,26 @@
 import React, { Component } from 'react'
 import { View, ScrollView, StyleSheet } from 'react-native'
+import Heading from './components/Heading';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      inputValue: '',
+      todos: [],
+      type: 'All'
+    }
+  }
+  
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView keyboardShouldPersistTaps='always'
-                    style={styles.content}>
-          <View/>
-        </ScrollView>
-      </View>
+      <ScrollView
+       keyboardShouldPersistTaps='always'
+       style={styles.content}>
+        <Heading />
+      </ScrollView>
+    </View>
     )
   }
 }

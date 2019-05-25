@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet } from 'react-native';
 import Heading from './components/Heading';
 import Input from './components/Input';
 import Button from './components/Button';
-
+import TodoList from './components/TodoList';
 
 let todoIndex = 0
 
@@ -26,7 +26,11 @@ class App extends Component {
 
   submitTodo () {
     if (this.state.inputValue.match(/^\s*$/)) return
-    let todo = { title: this.state.inputValue, todoIndex: todoIndex, complete: false }
+    let todo = { 
+      title: this.state.inputValue, 
+      todoIndex: todoIndex, 
+      complete: false
+    }
     todoIndex++
     this.state.todos.push(todo)
     this.setState({ todos: this.state.todos, inputValue: '' }, () => {
@@ -48,6 +52,7 @@ class App extends Component {
           <Input
             inputValue={inputValue}
             inputChange={(text) => this.inputChange(text)} />
+     <TodoList todos={todos} />
           <Button
             submitTodo={this.submitTodo} />
         </ScrollView>

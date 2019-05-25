@@ -36,9 +36,7 @@ class App extends Component {
     }
     todoIndex++
     this.state.todos.push(todo)
-    this.setState({ todos: this.state.todos, inputValue: '' }, () => {
-      console.log('State: ', this.state)
-    })
+    this.setState({ todos: this.state.todos, inputValue: '' })
   }
   deleteTodo(todoIndex) {
     let { todos } = this.state
